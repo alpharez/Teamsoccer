@@ -1,0 +1,25 @@
+<div class="row-fluid">
+  <div class="span6">
+    <h2>Teams</h2>
+    <% if @teams.any? %>
+      <table class="table">
+        <%= render @teams %>
+      </table>
+    <% end %>
+  </div>
+  <div class="span3 well">
+    <h2><%= @user.name %></h2>
+    <table class="table">
+      <tr><th>Email</th><td><%= @user.email %></td></tr>
+    </table>
+  </div>
+</div>
+<%= form_for [@user, Team.new] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br/>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Create Team', '#' %> | 
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Teamsoccer</title>
+  <%= stylesheet_link_tag    "bootstrap.min", :media => "all" %>
+  <%= stylesheet_link_tag "nivo-slider", :media => "screen" %>
+  <%= stylesheet_link_tag "default", :media => "screen" %>
+  <%= stylesheet_link_tag "custom", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+
+  <%= render 'layouts/navbar' %>
+
+  <div class="container-fluid">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+    <div class="row-fluid">
+      <!-- %= render 'layouts/sidebar' % -->
+      <div class="span12">
+        <%= yield %>
+      </div>
+    </div><!--/row-->
+  </div> <!-- container -->
+  <%= render 'layouts/footer' %>
+
+</body>
+</html>
