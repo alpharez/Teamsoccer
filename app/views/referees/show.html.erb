@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @referee.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @referee.email %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @referee.city %>
+</p>
+
+
+<%= link_to 'Edit', edit_referee_path(@referee) %> |
+<%= link_to 'Back', referees_path %>

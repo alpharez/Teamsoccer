@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @player.number %> <%= @player.name %></h1>
+<h3><%= @player.position %></h3>
+<h3><%= link_to @player.team.name, @player.team %></h3>
+
+<table class="table">
+<tr><th>Games</th><th>Goals</th><th>Assists</th><th>Shots on Goal</th></tr>
+<tr><td>9</td><td>4</td><td>4</td><td>8</td></tr>
+</table>
+
+<h4>Badges</h4>
+<p>Players can earn badges for stuff like scoring, saves in a season,
+juggling, etc...</p>
+<p>Coach can add notes and evaluations</p>
+
+
+<%= link_to 'Edit', edit_player_path(@player) %> |
+<%= link_to 'Back', players_path %>

@@ -1,0 +1,18 @@
+<h2>Players</h2>
+<table class="table">
+<tr><th>Number</th><th>Name</th><th>Position</th></tr>
+<% @players.each do |p| %>
+  <tr>
+    <td>
+      <%= p.number %>
+    </td>
+    <td>
+      <%= link_to p.name, p %>
+    </td>
+    <td>
+      <%= p.position %>
+    </td>
+  </tr>
+<% end %>
+</table>
+

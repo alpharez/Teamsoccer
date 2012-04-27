@@ -1,0 +1,40 @@
+<h2>Schedule</h2>
+<table class="table">
+<tr><th>Time</th><th>Home Team</th><th>Goals</th><th>Away Team</th><th>Goals</th></tr>
+<% @games.each do |g| %>
+  <tr>
+    <td>
+      <%= link_to g.gametime.strftime("%a %m/%d/%y %I:%M%p"), g %>
+    </td>
+    <td>
+      <%= link_to g.hometeam.name, g.hometeam %>
+    </td>
+    <td>
+      <% if g.homescore != nil %>
+        <% if g.homescore > g.awayscore %>
+          <span class="badge badge-success"><%= g.homescore %></span>
+        <% elsif g.homescore < g.awayscore %>
+          <span class="badge badge-error"><%= g.homescore %></span>
+        <% else %>
+          <span class="badge badge-info"><%= g.homescore %></span>
+        <% end %>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to g.awayteam.name, g.awayteam %>
+    </td>
+    <td>
+      <% if g.awayscore != nil %>
+        <% if g.awayscore > g.homescore %>
+          <span class="badge badge-success"><%= g.awayscore %></span>
+        <% elsif g.awayscore < g.homescore %>
+          <span class="badge badge-error"><%= g.awayscore %></span>
+        <% else %>
+          <span class="badge badge-info"><%= g.awayscore %></span>
+        <% end %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>
+

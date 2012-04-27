@@ -1,0 +1,23 @@
+<%= form_for (@player, :html => {:class => "well"} ) do |f| %>
+  <% if @player.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:</h2>
+
+      <ul>
+      <% @player.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.text_field :name, :placeholder => "Name", :class => "input-xlarge" %><br/>
+        <%= f.text_field :number, :placeholder => "Number", :class => "input-xlarge" %><br/>
+        <%= f.text_field :position, :placeholder => "Position", :class => "input-xlarge" %><br/>
+        <%= f.submit %>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

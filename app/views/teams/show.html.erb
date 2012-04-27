@@ -1,10 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
+<h1>
   <%= @team.name %>
-</p>
+</h1>
+<%= link_to raw('<i class="icon icon-edit"></i> Edit Team'), edit_team_path(@team) %> | 
+<%= link_to raw('<i class="icon icon-camera"></i> Add Picture'), '#' %> | 
+<%= link_to raw('<i class="icon icon-plus-sign"></i> New Game'), new_game_path %>
 
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+<h2><%= @team.wins %> wins, <%= @team.losses %> losses, <%= @team.ties %> ties</h2>
+<blockquote>
+todo: I need to make it easy to add users and make a roster.. parents should be able to make a player or claim a player.
+admins, parents and coaches can add a player.  Coaches can evaluate a player.<br/>
+I would like to embed a Google calendar in here.
+Add league, division and logo fields.
+Maybe do a tabbed view of this thing?
+calendar, roster, referees, ... ?
+Automatically send emails... automate a lot of admin and coach tasks.
+</blockquote>
+<div class="row">
+  <div class="span8">
+    <% if @games.any? %>
+      <%= render '/shared/games' %>
+    <% end %>
+    <%= link_to raw('<i class="icon icon-plus-sign"></i> New Game'), new_game_path %>
+  </div>
+  <div class="span6">
+    <h2>Coaches/Admins/Parents</h2>
+    <% if @team.users.any? %>
+      <table class="table">
+        <tr><th>Name</th></tr>
+      <% @team.users.each do |u| %>
+        <tr><td><%= link_to u.name, u %></td></tr>
+      <% end %>
+      </table>
+    <% end %>
+    <!-- % if @players.any? % -->
+      <%= render '/shared/players' %>
+      <ul class="nav nav-list">
+        <li>
+          <%= form_for [@team, Player.new] do |p| %>
+            <%= p.text_field :name, :placeholder => "Name" %><%= p.submit %>
+          <% end %>
+        </li>
+      </ul>
+    <!-- % end % -->
+  </div>
+</div>
+

@@ -1,0 +1,11 @@
+<h2>Teams</h2>
+<table class="table">
+<% @teams.each do |t| %>
+  <tr>
+    <td>
+      <%= link_to t.name, t %>
+    </td>
+  </tr>
+<% end %>
+</table>
+

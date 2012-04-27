@@ -1,25 +1,23 @@
 <div class="row-fluid">
   <div class="span6">
-    <h2>Teams</h2>
-    <% if @teams.any? %>
-      <table class="table">
-        <%= render @teams %>
-      </table>
-    <% end %>
+    <%= render '/shared/teams' %>
+    <%= render '/shared/posts' %>
   </div>
   <div class="span3 well">
     <h2><%= @user.name %></h2>
+    <h3>Team Admin</h3>
     <table class="table">
       <tr><th>Email</th><td><%= @user.email %></td></tr>
     </table>
+      <ul class="nav nav-list">
+        <li><%= link_to raw('<i class="icon icon-plus-sign"></i> New Team'), new_team_path %></li>
+        <li><%= link_to raw('<i class="icon icon-flag"></i> New Game'), new_game_path %></li>
+        <li><%= link_to raw('<i class="icon icon-file"></i> New Post'), new_post_path %></li>
+        <li><%= link_to raw('<i class="icon icon-user"></i> Edit Profile'), edit_user_path(@user) %></li>
+        <li><%= link_to 'Broadcast for a ref', '#' %></li>
+        <li><%= link_to 'Email Team', '#' %></li>
+        <li><%= link_to 'Add link', '#' %></li>
+        <li><%= link_to 'Todo list', '#' %></li>
+      </ul>
   </div>
 </div>
-<%= form_for [@user, Team.new] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br/>
-  <%= f.submit %>
-<% end %>
-
-<%= link_to 'Create Team', '#' %> | 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

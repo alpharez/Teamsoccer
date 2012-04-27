@@ -14,7 +14,8 @@ class TeamsController < ApplicationController
   # GET /teams/1.json
   def show
     @team = Team.find(params[:id])
-
+    @games = Game.where("hometeam_id = ? or awayteam_id = ?", @team.id, @team.id)
+    @players = @team.players
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @team }
@@ -40,7 +41,8 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
-    @user = User.find(params[:user_id])
+    #@user = User.find(params[:user_id])
+    @user = current_user
     @team = @user.teams.create!(params[:team])
 
     respond_to do |format|

@@ -1,5 +1,13 @@
 Teamsoccer::Application.routes.draw do
 
+  resources :referees
+
+  resources :posts
+
+  resources :players
+
+  resources :games
+
   root :to => "pages#home"
 
   get "pages/home"
@@ -10,8 +18,12 @@ Teamsoccer::Application.routes.draw do
 
   resources :users do
     resource :teams
+    resource :posts
   end
-  resources :teams
+  resources :teams do 
+    resource :players
+  end
+
   resources :sessions
 
   match '/signup', :to => 'users#new'

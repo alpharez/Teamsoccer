@@ -1,0 +1,45 @@
+<%= form_for(@game, :html => { :class => "" } ) do |f| %>
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+      <ul>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :gametime %><br />
+    <%= f.datetime_select :gametime %>
+  </div>
+  <div class="field">
+    <%= f.label :hometeam_id %><br />
+    <%= select("game", "hometeam_id", Team.all.collect {|th| [th.name, th.id ]} ) %>
+  </div>
+  <div class="field">
+    <%= f.label :awayteam_id %><br />
+    <%= select("game", "awayteam_id", Team.all.collect {|ta| [ta.name, ta.id ]} ) %>
+  </div>
+  <div>
+    <%= f.text_field :homescore, :placeholder => "Home Score" %>
+    <%= f.text_field :awayscore, :placeholder => "Away Score" %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br />
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :field_id %><br />
+    <%= f.number_field :field_id %>
+  </div>
+  <div class="field">
+    <%= f.label :fieldname %><br />
+    <%= f.text_field :fieldname %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

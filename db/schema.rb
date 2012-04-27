@@ -10,7 +10,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120425133211) do
+ActiveRecord::Schema.define(:version => 20120427121205) do
+
+  create_table "games", :force => true do |t|
+    t.datetime "gametime"
+    t.integer  "hometeam_id"
+    t.integer  "awayteam_id"
+    t.text     "notes"
+    t.integer  "field_id"
+    t.string   "fieldname"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "homescore"
+    t.integer  "awayscore"
+  end
+
+  create_table "players", :force => true do |t|
+    t.string   "name"
+    t.string   "number"
+    t.string   "position"
+    t.integer  "team_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "players", ["team_id"], :name => "index_players_on_team_id"
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "referees", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "city"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "team_assignments", :force => true do |t|
     t.integer  "user_id"

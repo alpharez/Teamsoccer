@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  gametime: 2012-04-25 12:45:45
+  hometeam_id: 1
+  awayteam_id: 1
+  notes: MyText
+  field_id: 1
+  fieldname: MyString
+
+two:
+  gametime: 2012-04-25 12:45:45
+  hometeam_id: 1
+  awayteam_id: 1
+  notes: MyText
+  field_id: 1
+  fieldname: MyString

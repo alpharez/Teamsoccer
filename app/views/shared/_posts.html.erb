@@ -1,0 +1,15 @@
+<h2>Posts</h2>
+<table class="table">
+<tr><th>Title</th><th>Body</th></tr>
+<% @posts.each do |pst| %>
+  <tr>
+    <td>
+      <%= link_to pst.title, pst %>
+    </td>
+    <td>
+      <%= pst.body %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
