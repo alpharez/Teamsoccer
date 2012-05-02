@@ -16,6 +16,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     @games = Game.where("hometeam_id = ? or awayteam_id = ?", @team.id, @team.id)
     @players = @team.players
+    @contacts = @team.contacts
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @team }

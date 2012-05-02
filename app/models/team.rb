@@ -5,7 +5,10 @@ class Team < ActiveRecord::Base
   has_many :homegames, :class_name => "Game", :foreign_key => "hometeam_id"
   has_many :awaygames, :class_name => "Game", :foreign_key => "awayteam_id"
   has_many :games
+  has_many :contacts
   has_many :players
+
+  default_scope :order => 'teams.name'
 
   def wins
     homegames.select { |hg| hg.winner == self}.size + awaygames.select { |ag| ag.winner == self}.size
@@ -20,3 +23,13 @@ class Team < ActiveRecord::Base
   end
 
 end
+# == Schema Information
+#
+# Table name: teams
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+

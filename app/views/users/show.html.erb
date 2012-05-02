@@ -1,3 +1,7 @@
+<blockquote>
+  This will be the main view once logged on so have a block where you can see news and global posts/announcements. From the site,
+  other users of the same team and maybe even other users of the whole site, if the post is hot or well-liked.
+</blockquote>
 <div class="row-fluid">
   <div class="span6">
     <%= render '/shared/teams' %>
@@ -14,10 +18,12 @@
         <li><%= link_to raw('<i class="icon icon-flag"></i> New Game'), new_game_path %></li>
         <li><%= link_to raw('<i class="icon icon-file"></i> New Post'), new_post_path %></li>
         <li><%= link_to raw('<i class="icon icon-user"></i> Edit Profile'), edit_user_path(@user) %></li>
-        <li><%= link_to 'Broadcast for a ref', '#' %></li>
-        <li><%= link_to 'Email Team', '#' %></li>
-        <li><%= link_to 'Add link', '#' %></li>
-        <li><%= link_to 'Todo list', '#' %></li>
+        <li><%= link_to raw('<i class="icon icon-share"></i> Broadcast for a ref'), '#' %></li>
+        <li><%= link_to raw('<i class="icon icon-envelope"></i> Email Team'), '#' %></li>
+        <li><%= link_to raw('<i class="icon icon-share"></i> Add link'), '#' %></li>
+        <li><%= link_to raw('<i class="icon icon-ok"></i> Todo list'), '#' %></li>
+        <li><%= link_to raw('<i class="icon icon-user"></i> Referees'), referees_path %></li>
+        <li><%= link_to raw('<i class="icon icon-map-marker"></i> Fields'), fields_path %></li>
       </ul>
   </div>
 </div>

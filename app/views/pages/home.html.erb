@@ -1,81 +1,18 @@
-  <script type="text/javascript">
-  $(window).load(function() {
-  $('#slider').nivoSlider();
-  });
-   </script>
-
 <div class="row-fluid">
     <div class="hero-unit">
       <table>
       <tr>
-      <td>
-      <h1>Welcome to teamsoccer.org</h1>
-      <h2>Making life easy for soccer team coaches,<br/> administrators, and parents</h2>
-        <p><%= link_to raw("Sign up now for a free account &raquo;"), signup_path, :class => "btn btn-primary btn-large" %></p>
-        <p><b><em>or</em></b></p>
-        <p><%= image_tag("login-button.png") %></p>
-        </td>
-        <td>
-      <div class="ribbon"></div>
-      <div class="slider-wrapper theme-default">
-      <div id="slider" class="nivoSlider">
-      <img src="/assets/img1-big.jpg", title="CFC vs. WASA" />
-      <img src="/assets/img4.jpg", title="Fall Ball champs" />
-      <img src="/assets/img5.jpg", title="Tyler vs. Crew" />
-      <img src="/assets/img6.jpg", title="Blake goalie" />
-      <img src="/assets/img7.jpg", title="Cole" />
-      </div> <!-- slider -->
-      </div> <!-- slider-wrapper -->
-
-        </td>
-        </tr>
-        </table>
+      <td width="650" valign="top">
+        <h1>Welcome to<br/>teamsoccer.org</h1>
+        <h2>Making life easy for soccer team coaches,<br/> administrators, and parents</h2>
+      </td>
+      <td valign="top">
+      <% if !signed_in? %>
+        <%= render 'signup' %>
+      <% end %>
+      </td>
+      </tr>
+      </table>
     </div> <!-- hero -->
-  </div> <!-- row -->
-  <div class="row">
-    <div class="span6">
-    </div>
-    <div class="span4">
-      <div class="ribbon"></div>
-      <div class="slider-wrapper theme-default">
-        <div id="slider" class="nivoSlider">
-          <img src="/assets/img1-big.jpg", title="CFC vs. WASA" />
-          <img src="/assets/img4.jpg", title="Fall Ball champs" />
-          <img src="/assets/img5.jpg", title="Tyler vs. Crew" />
-          <img src="/assets/img6.jpg", title="Blake goalie" />
-          <img src="/assets/img7.jpg", title="Cole" />
-        </div> <!-- slider -->
-      </div> <!-- slider-wrapper -->
-    </div> <!-- span -->
-  </div> <!-- row -->
-  <div class="row">
-    <div class="span8 offset2">
-      <h1>What's teamsoccer.org?</h1>
-      <hr/>
-      <ul>
-        <li><h4>All of your soccer information organized and in one place.</h4></li>
-        <li><h4>Manage your soccer team for free.</h4></li>
-        <li><h4>Keep in contact with your team using social networking.</h4></li>
-        <li><h4>Automate team management tasks to make your life easier.</h4></li>
-        <li><h4>Share picture and video links with the team.</h4></li>
-        <li><h4>Post documents and forms.</h4></li>
-        <li><h4>Get feedback from parents.</h4></li>
-        <li><h4>Keep a list of refs and have the site email them.</h4></li>
-        <li><h4>Allow the public to see only what you want them to.</h4></li>
-        <li><h4>Everything is private by default.</h4></li>
-        <li><h4>Coaches can create private player evaluations.</h4></li>
-      </ul>
-    </div> <!-- span -->
-    <div class="span4 well">
-      <h1>Why teamsoccer.org?</h1>
-      <hr/>
-      <ul>
-        <li><h4>Never a monthly fee</h4></li>
-        <li><h4>We only care about soccer</h4></li>
-        <li><h4>We love soccer as much as you do</h4></li>
-        <li><h4>Admins, coaches and parents have a big job</h4></li>
-        <li><h4>Let us help!</h4>
-      </ul>
-    </div> <!-- span -->
   </div> <!-- row -->
 

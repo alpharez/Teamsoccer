@@ -1,0 +1,14 @@
+<h2>Sign Up</h2>
+ <hr/>
+
+<%= form_for(@user) do |f| %>
+
+<%= f.text_field :name, :placeholder => "Name" %><br/>
+<%= f.text_field :email, :placeholder => "Email" %><br/>
+<%= f.password_field :password, :placeholder => "Password" %><br/>
+<%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %>
+<span class="help-block">Type password again for verification</span>
+<br />
+<%= f.submit "Create my account", :class => "btn btn-large btn-primary" %>
+<% end %>
+

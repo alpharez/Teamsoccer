@@ -1,39 +1,26 @@
-<p id="notice"><%= notice %></p>
-
 <blockquote>
 add refs to this game, add a button to send notification and it send a notification to team contacts and refs
 about this game.  Checkbox for auto-notification reminder 3 days before the game.  People who got the email can click a link to confirm.  Put a link to enter the score.
 </blockquote>
-<p>
-  <b>Gametime:</b>
-  <%= @game.gametime.strftime("%a %m/%d/%y %I:%M%p") %>
-</p>
 
-<p>
-  <b>Hometeam:</b>
-  <%= link_to @game.hometeam.name, @game.hometeam %>
-</p>
+  <h2><%= @game.gametime.strftime("%a %m/%d/%y %I:%M%p") %></h2>
 
-<p>
-  <b>Awayteam:</b>
-  <%= link_to @game.awayteam.name, @game.awayteam %>
-</p>
-
-<p>
-  <b>Notes:</b>
-  <%= @game.notes %>
-</p>
-
-<p>
-  <b>Field:</b>
-  <%= @game.field_id %>
-</p>
-
-<p>
-  <b>Fieldname:</b>
-  <%= @game.fieldname %>
-</p>
-
+  <table class="table">
+    <tr>
+      <td><%= link_to @game.hometeam.name, @game.hometeam %> <strong><%= @game.homescore %></strong></td> 
+      <td><%= link_to @game.awayteam.name, @game.awayteam %> <strong><%= @game.awayscore %></strong></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <% if @game.field != nil %>
+          <%= link_to @game.field.name, @game.field %> <%= @game.fieldname %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><%= @game.notes %></td>
+    </tr>
+  </table>
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>

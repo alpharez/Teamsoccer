@@ -1,5 +1,9 @@
 Teamsoccer::Application.routes.draw do
 
+  resources :fields
+
+  resources :contacts
+
   resources :referees
 
   resources :posts
@@ -15,6 +19,7 @@ Teamsoccer::Application.routes.draw do
   get "pages/privacy"
   get "pages/terms"
   get "pages/faq"
+  get "pages/about"
 
   resources :users do
     resource :teams
@@ -22,6 +27,7 @@ Teamsoccer::Application.routes.draw do
   end
   resources :teams do 
     resource :players
+    resource :posts
   end
 
   resources :sessions

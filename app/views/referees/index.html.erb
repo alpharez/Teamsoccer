@@ -1,21 +1,19 @@
 <h1>Listing referees</h1>
-
+<blockquote>
+An admin should be able to click a check box and send emails to all of these guys.  Should be able to filter the list by city.
+</blockquote>
 <table class="table">
   <tr>
     <th>Name</th>
-    <th>Email</th>
     <th>City</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @referees.each do |referee| %>
   <tr>
-    <td><%= referee.name %></td>
-    <td><%= referee.email %></td>
+    <td><%= link_to referee.name, referee %></td>
     <td><%= referee.city %></td>
-    <td><%= link_to 'Show', referee %></td>
     <td><%= link_to 'Edit', edit_referee_path(referee) %></td>
     <td><%= link_to 'Destroy', referee, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

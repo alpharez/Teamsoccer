@@ -33,7 +33,8 @@
   </div>
   <div class="field">
     <%= f.label :field_id %><br />
-    <%= f.number_field :field_id %>
+    <%= select("game", "field_id", Field.all.collect{|fld| [fld.name, fld.id ] } ) %>
+    <%= link_to "New Field", new_field_path %>
   </div>
   <div class="field">
     <%= f.label :fieldname %><br />

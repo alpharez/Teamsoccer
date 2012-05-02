@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
   def home
+    @user = User.new
   end
 
   def contact
@@ -13,6 +14,10 @@ class PagesController < ApplicationController
   end
 
   def faq
+  end
+
+  def about
+    @user = User.new
   end
 
 end

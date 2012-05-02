@@ -3,21 +3,33 @@
     <div class="container-fluid">
       <a class="btn btn-navbar">
       <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
+      <!-- span class="icon-bar"></span -->
+      <!-- span class="icon-bar"></span -->
       </a>
-      <%= link_to "Teamsoccer.org", root_path , :class => "brand" %>
+      <% if signed_in? %>
+        <%= link_to "Teamsoccer.org", @current_user, :class => "brand" %>
+      <% else %>
+        <%= link_to "Teamsoccer.org", root_path , :class => "brand" %>
+      <% end %>
       <div class="nav-collapse">
+        <ul class="nav">
+          <li><%= link_to "About", '/pages/about' %></li>
+          <li class="divider-vertical"></li>
+          <li><%= link_to "Contact", '/pages/contact' %></li>
+          <li class="divider-vertical"></li>
+          <li><%= link_to "FAQ", '/pages/faq' %></li>
+        </ul>
         <ul class="nav pull-right">
           <form class="navbar-search pull-left">
             <input type="text" class="search-query" placeholder="Search Teams">
           </form>
           <% if signed_in? %>
             <li><%= link_to @current_user.name, @current_user %></li>
+            <li><%= link_to raw('<i class="icon icon-inbox"></i> messages'), '#' %></li>
             <li class="divider-vertical"></li>
             <li><%= link_to "Sign Out", signout_path %></li>
         <% else  %>
-            <li><%= link_to "Sign in", signin_path %></li>
+            <li><%= link_to raw("Have an account? <b>Sign in</b>"), signin_path %></li>
         <% end %>
         </ul>
       </div><!--/.nav-collapse -->

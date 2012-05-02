@@ -1,11 +1,23 @@
 <p id="notice"><%= notice %></p>
 
+<% if @team.logourl? %>
+  <%= image_tag @team.logourl, :width => "50" %>
+<% end %>
 <h1>
-  <%= @team.name %>
+  <%= link_to @team.name, @team %>
 </h1>
+<% if @team.league? %>
+  <h3>
+    <%= @team.league %>
+  </h3>
+<% end %>
+<%= link_to raw('<i class="icon icon-calendar"></i> New Season'), '#' %> | 
 <%= link_to raw('<i class="icon icon-edit"></i> Edit Team'), edit_team_path(@team) %> | 
-<%= link_to raw('<i class="icon icon-camera"></i> Add Picture'), '#' %> | 
-<%= link_to raw('<i class="icon icon-plus-sign"></i> New Game'), new_game_path %>
+<%= link_to raw('<i class="icon icon-picture"></i> Add Picture'), '#' %> | 
+<%= link_to raw('<i class="icon icon-plus-sign"></i> New Game'), new_game_path %> |
+<%= link_to raw('<i class="icon icon-gift"></i> Invite Someone'), '#' %> | 
+<%= link_to raw('<i class="icon icon-user"></i> New Contact'), new_contact_path %> | 
+<%= link_to raw('<i class="icon icon-file"></i> New Post'), new_post_path %>
 
 
 <h2><%= @team.wins %> wins, <%= @team.losses %> losses, <%= @team.ties %> ties</h2>
@@ -17,13 +29,14 @@ Add league, division and logo fields.
 Maybe do a tabbed view of this thing?
 calendar, roster, referees, ... ?
 Automatically send emails... automate a lot of admin and coach tasks.
+Add leagues
+I need to add seasons, so that we can make a new season.
 </blockquote>
 <div class="row">
   <div class="span8">
     <% if @games.any? %>
       <%= render '/shared/games' %>
     <% end %>
-    <%= link_to raw('<i class="icon icon-plus-sign"></i> New Game'), new_game_path %>
   </div>
   <div class="span6">
     <h2>Coaches/Admins/Parents</h2>
@@ -35,16 +48,17 @@ Automatically send emails... automate a lot of admin and coach tasks.
       <% end %>
       </table>
     <% end %>
-    <!-- % if @players.any? % -->
-      <%= render '/shared/players' %>
-      <ul class="nav nav-list">
-        <li>
-          <%= form_for [@team, Player.new] do |p| %>
-            <%= p.text_field :name, :placeholder => "Name" %><%= p.submit %>
-          <% end %>
-        </li>
-      </ul>
-    <!-- % end % -->
+    <% if @contacts.any? %>
+      <%= render '/shared/contacts' %>
+    <% end %>
+    <%= render '/shared/players' %>
+    <ul class="nav nav-list">
+      <li>
+        <%= form_for [@team, Player.new] do |p| %>
+          <%= p.text_field :name, :placeholder => "Name" %><%= p.submit %>
+        <% end %>
+      </li>
+    </ul>
   </div>
 </div>
 

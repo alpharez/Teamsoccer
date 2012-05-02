@@ -11,5 +11,7 @@
 </p>
 
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to raw('<i class="icon icon-pencil"></i> Edit'), edit_post_path(@post) %> |
+<%= link_to raw('<i class="icon icon-arrow-left"></i> Back'), posts_path %> |
+<%= link_to raw('<i class="icon icon-comment"></i> Comment'), '#' %> |
+<%= link_to raw('<i class="icon icon-ok"></i> Like'), '#' %>

@@ -40,7 +40,6 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    #@user = User.find(params[:user_id])
     @user = current_user
     @post = @user.posts.create!(params[:post])
 

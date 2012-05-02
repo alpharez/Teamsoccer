@@ -1,0 +1,16 @@
+  <h1><%= @field.name %></h1>
+  <h3><%= @field.address %></h3>
+  <h3><%= @field.city %> <%= @field.state %></h3>
+
+<p>
+  <%= raw(@field.googlemap) %>
+</p>
+
+
+<%= link_to 'Edit', edit_field_path(@field) %> | 
+<%= link_to 'Back', fields_path %> | 
+<%= link_to raw('<i class="icon icon-comment"></i> Post Comment'), '#' %>
+
+<% if @field.games.any? %>
+  <%= render '/shared/games' %>
+<% end %>
